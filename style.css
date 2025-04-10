@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(./image.png) no-repeat center center/cover;
+}
+
+h1{
+    font-size: 2.5rem;
+    color: white;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+#todoList{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 30px;
+    color: white;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+}
+
+#inputField{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#input{
+    flex: 1;
+    padding: 10px 17px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+}
+
+#input::placeholder{
+    color: white;
+    opacity: 0.5;
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover{
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#taskContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#taskList{
+    width: 100%;
+}
+
+#taskList li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    position: relative;
+    transition: box-shadow 0.2s ease; 
+}
+
+#taskList .li-hover:hover{
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#taskList li span{
+    flex: 1;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-wrap: break-word;
+    border: none;
+    outline: none;
+}
+
+#taskList li .checkbox{
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+}
+
+#taskList li .checkbox:checked{
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+#taskList li .checkbox:checked::before{
+    content: "\2713";
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.taskButtons{
+    display: flex;
+    gap: 10px;
+    margin-right: auto;
+}
+
+.taskButtons button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.taskButtons button:hover{
+    transform: scale(1.1);
+}
+
+.taskButtons .editButton{
+    background: rgba(0, 255, 0, 0.5);
+}
+
+.taskButtons .deleteButton{
+    background: red;
+}
+
+.taskCompleted{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+#status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+    padding: 20px 1px;
+    text-wrap: nowrap;
+}
