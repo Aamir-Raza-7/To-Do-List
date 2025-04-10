@@ -16,8 +16,12 @@
             <h1>To Do List</h1>
             <div class="statusContainer">
                 <div class="taskCompleted">
-                   <p id="status"> 0 / 0 </p>
-                </div>
+                    <svg class="progress-ring" width="120" height="120">
+                      <circle class="progress-ring__bg" cx="60" cy="60" r="54"/>
+                      <circle class="progress-ring__circle" cx="60" cy="60" r="54"/>
+                    </svg>
+                    <p id="status">0 / 0</p>
+                </div>   
             </div>
             <form class="inputField">
                 <input type="text" id="input" placeholder="Add a new task..." required>

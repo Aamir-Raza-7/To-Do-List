@@ -182,23 +182,40 @@ button:hover{
     background: red;
 }
 
-.taskCompleted{
+.taskCompleted {
+    position: relative;
+    width: 120px;
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 50%;
-}
-
-#status{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
+  }
+  
+  #status {
+    position: absolute;
     color: white;
-    padding: 20px 1px;
+    font-size: 1.2rem;
     text-wrap: nowrap;
-}
+  }
+  
+  .progress-ring {
+    transform: rotate(-90deg);
+  }
+  
+  .progress-ring__bg {
+    fill: none;
+    stroke: #444;
+    stroke-width: 12;
+  }
+  
+  .progress-ring__circle {
+    fill: none;
+    stroke: rgb(0, 255, 255);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 0.5s ease;
+  }

@@ -24,9 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Set checkbox state and text decoration based on completion status
         checkbox.checked = completed;
         span.style.textDecoration = completed ? "line-through" : "none";
-        if(checkbox.checked){
+        if (checkbox.checked) {
             span.style.color = "black"
-        } 
+        } else {
+            span.style.color = "white"
+        }
         editButton.disabled = completed;
         editButton.style.cursor = completed ? "not-allowed" : "pointer";
         if (completed) li.classList.remove("li-hover");
@@ -36,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const isChecked = checkbox.checked;
             li.classList.toggle("li-hover", !isChecked);
             span.style.textDecoration = isChecked ? "line-through" : "none";
+            span.style.color = isChecked ? "black" : "white";
             editButton.disabled = isChecked;
             editButton.style.cursor = isChecked ? "not-allowed" : "pointer";
             taskCompleted();
@@ -92,14 +95,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Check if all tasks are completed
     const taskCompleted = () => {
+        const status = document.getElementById('status');
+        const circle = document.querySelector('.progress-ring__circle');
+        const radius = 54;
+        const circumference = 2 * Math.PI * radius;
+    
         const totalTasks = tasklist.children.length;
         const completedTasks = tasklist.querySelectorAll(".checkbox:checked").length;
-        document.getElementById("status").textContent = `${completedTasks} / ${totalTasks}`;
+    
+        // Update the status text
+        status.textContent = `${completedTasks} / ${totalTasks}`;
+    
+        // Calculate percent and offset
+        const percent = totalTasks === 0 ? 0 : completedTasks / totalTasks;
+        const offset = circumference * (1 - percent);
+    
+        // Apply the stroke offset to show progress
+        circle.style.strokeDashoffset = offset;
+    
+        // Trigger animation if all tasks are complete
         if (totalTasks > 0 && totalTasks === completedTasks) {
-            console.log("All tasks completed!");
-            animate();
+            animate(); 
         }
     };
+    
 
     // Event Listeners for input and button
     btn.addEventListener("click", addTask);
